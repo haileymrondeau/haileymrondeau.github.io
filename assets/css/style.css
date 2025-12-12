@@ -1,0 +1,440 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Raleway:wght@400;700&display=swap');
+
+/* Global Variables */
+:root {
+    --header-bg: #4D5A3F;
+    --footer-bg: #4D5A3F;
+    --nav-hover: #627252;
+    --text-light: #FFFDF6;
+    --text-dark: #000000;
+    --main-bg: #FFFDF6;
+    --green-accent: #5E6E4D;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg);
+    color: var(--text-dark);
+}
+
+h1, h2, .section-title {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+}
+
+/* Big Heading Style */
+h1, .section-title {
+    font-size: 128px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 48px;
+    margin-bottom: 0.5em;
+}
+
+p, ul, li {
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--header-bg);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 72px;
+}
+
+/* Nav Left: Title */
+nav .nav-brand {
+    font-family: 'Italiana', serif;
+    font-size: 40px;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* Nav Right: Links */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--nav-hover);
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--header-bg);
+    min-width: 160px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    text-align: left;
+    padding: 12px 16px;
+    white-space: nowrap;
+}
+
+/* Main Content Area */
+main {
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 50px 72px;
+    background-color: var(--main-bg);
+    min-height: calc(100vh - 160px);
+    box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-light);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* --- Page Specific Styles --- */
+
+/* Index Page */
+.masthead {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/masthead-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    /* UPDATED: Fixes the background image in place during scroll */
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.masthead-title {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 75%;
+    text-align: center;
+    padding: 40px;
+    font-size: 180px; 
+}
+
+.video-section {
+    background-color: var(--green-accent);
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.content-row.image-right {
+    flex-direction: row;
+}
+
+.content-row.image-left {
+    flex-direction: row-reverse;
+}
+
+.content-text {
+    flex: 1;
+}
+
+.content-image {
+    flex: 1;
+}
+
+/* About Page (Navigation Squares) */
+.about-nav-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 50px;
+    width: 100%; 
+}
+
+.nav-square {
+    background-color: var(--green-accent);
+    flex: 1; 
+    aspect-ratio: 1 / 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.nav-square:hover {
+    transform: scale(1.05);
+}
+
+.nav-square h2 {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 4vw; 
+}
+
+/* Cast & Crew Pages (Grid Layout) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.profile-card img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-card h2 {
+    margin-bottom: 10px;
+}
+
+.profile-card p {
+    margin-top: 0;
+}
+
+/* Budget Page */
+.budget-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.budget-container .content-image {
+    flex: 2.5; 
+}
+
+.budget-container .content-text {
+    flex: 1;
+}
+
+.budget-list {
+    list-style: disc; 
+    padding-left: 40px; 
+    font-size: 22px;
+}
+
+.budget-list li {
+    margin-bottom: 10px;
+}
+
+.budget-list li strong {
+    font-weight: 700;
+}
+
+/* Funding Page */
+.funding-section {
+    margin-bottom: 80px;
+}
+
+.funding-section ul {
+    padding-left: 20px;
+}
+
+.funding-flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.funding-flex.left-align {
+    flex-direction: row;
+}
+
+.funding-flex.right-align {
+    flex-direction: row-reverse;
+}
+
+/* Contact Page */
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-form-wrapper {
+    flex: 2;
+}
+
+.contact-image {
+    flex: 1;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400; 
+}
+
+form input[type="email"],
+form textarea {
+    width: 100%;
+    background-color: #E6E2D6;
+    border: 1px solid #92998B;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+form button {
+    background-color: var(--header-bg);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Italiana', serif;
+}
+
+/* --- Media Queries --- */
+
+/* 1. Intermediate Breakpoint */
+@media screen and (max-width: 1200px) {
+    .content-row, 
+    .content-row.image-right, 
+    .content-row.image-left,
+    .funding-flex, 
+    .funding-flex.left-align, 
+    .funding-flex.right-align,
+    .budget-container,
+    .contact-container,
+    .about-nav-container { 
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-nav-container {
+        align-items: center;
+    }
+
+    .nav-square {
+        width: 75vw;
+        flex: unset;
+        margin-bottom: 40px;
+        aspect-ratio: 2.5 / 1; 
+    }
+
+    .nav-square h2 {
+        font-size: 11vw;
+    }
+}
+
+/* 2. Mobile Breakpoint */
+@media screen and (max-width: 880px) {
+    header {
+        height: 100px;
+        padding-top: 30px;
+    }
+
+    h1, .section-title {
+        font-size: 64px;
+    }
+
+    .masthead-title {
+        font-size: 100px; 
+        width: 75%;
+    }
+    
+    h2 {
+        font-size: 36px;
+    }
+
+    nav {
+        padding: 0 20px;
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    
+    nav .nav-brand {
+        margin-bottom: 10px;
+    }
+    
+    main {
+        max-width: 100vw;
+        padding: 50px;
+    }
+}
